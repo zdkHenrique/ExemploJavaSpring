@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dados pessoais</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous" />
+</head>
+<body class="d-flex flex-column h-100">
+  <!-- NAVBAR - INICIO -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TADS DSW</a>
+    </div>
+  </nav>
+  <!-- NAVBAR - FIM -->
+
+  <div class="container-lg flex-shrink-0">
+    <div class="row">
+      <main class="col-lg-12">
+        <h1>Dados pessoais</h1>
+        <h2 id="tituloInclusao" class="d-none">Incluir nova pessoa</h2>
+        <h2 id="tituloAlteracao" class="d-none">Alterar pessoa</h2>
+        <form method="post" novalidate id="formDados">
+          <div class="row mb-3">
+            <label for="txtUsername" class="col-sm-2 col-form-label">Apelido</label>
+            <div class="col-sm-10">
+              <input type="text" name="username" value="" id="txtUsername" placeholder="Preencha um username válido e único"
+                class="form-control" maxlength="64" required />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtNome" class="col-sm-2 col-form-label">Nome</label>
+            <div class="col-sm-10">
+              <input type="text" name="nome" value="" id="txtNome" placeholder="Preencha o nome completo"
+                class="form-control" maxlength="100" required />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtEmail" class="col-sm-2 col-form-label">E-mail</label>
+            <div class="col-sm-10">
+              <input type="email" name="email" value="" id="txtEmail" placeholder="E-mail válido"
+                class="form-control" maxlength="100" required />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtTelefone" class="col-sm-2 col-form-label">Telefone</label>
+            <div class="col-sm-10">
+              <input type="text" name="telefone" value="" id="txtTelefone" placeholder="Telefone"
+                class="form-control" maxlength="20" required />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtDataNascimento" class="col-sm-2 col-form-label">Data de nascimento</label>
+            <div class="col-sm-10">
+              <input type="date" name="dataNascimento" value="" id="txtDataNascimento" class="form-control"
+                maxlength="10" />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtSenha" class="col-sm-2 col-form-label">Senha</label>
+            <div class="col-sm-10">
+              <input type="password" name="senha" value="" id="txtSenha" placeholder="Senha"
+                class="form-control" minlength="8" />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="txtRepeticaoSenha" class="col-sm-2 col-form-label">Repetir senha</label>
+            <div class="col-sm-10">
+              <input type="password" name="repeticaoSenha" value="" id="txtRepeticaoSenha" placeholder="Repetir senha"
+                class="form-control" minlength="8" />
+              <p class="invalid-feedback"></p>
+            </div>
+          </div>
+          <fieldset class="row mb-3">
+            <legend class="col-sm-2 col-form-label pt-0">Interesses</legend>
+
+            <!-- OBS: OPÇÕES ABAIXO DEVEM SER CARREGADOS VIA FETCH API -->
+            <!-- ESTAO APRESENTADOS DIRETAMENTE NESTE HTML SOMENTE COMO EXEMPLO -->
+            <div class="col-sm-10">
+              <div id="opcoesInteresses">
+                <div class="form-check form-check-inline">
+                  <input type="checkbox" name="interessesIds" value="0" id="interesse0" class="form-check-input" />
+                  <label for="interesse0" class="form-check-label">Opção</label>
+                </div>
+              </div>
+              <div class="invalid-feedback"></div>
+            </div>
+          </fieldset>
+
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <div class="d-grid">
+                <a href="index.html" role="button" class="btn btn-outline-dark">Cancelar</a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER - INICIO -->
+  <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container text-center">
+      <span class="text-body-secondary">&copy; Senac - TADS DSW 2025</span>
+    </div>
+  </footer>
+  <!-- FOOTER - FIM -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script>
+    // Carregar opções de interesses (usando IIFE)
+    (async function() {
+      try {
+        const httpResp = await fetch('http://localhost:8080/interesses');
+        if (!httpResp.ok) {
+          throw new Error('Erro HTTP: Status Code ' + httpResp.statusCode);
+        }
+        const dados = await httpResp.json();
+        const elOpcoes = document.getElementById('opcoesInteresses');
+        elOpcoes.innerHTML = '';
+        for (const dado of dados) {
+          const elId = `interesse${dado}`
+          const opcao = `
+            <div class="form-check form-check-inline">
+              <input type="checkbox" name="interesses" value="${dado}" id="${elId}" class="form-check-input" />
+              <label for="${elId}" class="form-check-label">${dado}</label>
+            </div>
+          `;
+          elOpcoes.insertAdjacentHTML('beforeend', opcao);
+        }
+      } catch (err) {
+        alert(err);
+      }
+    })();
+
+    async function salvarDados(evt) {
+      evt.preventDefault(); // Evitar que o submit padrão do form seja disparado.
+      const elForm = evt.target; // OU document.getElementById('formDados')
+
+      const interessesSelecionados = document.querySelectorAll('[name="interesses"]:checked');
+      let interesses = [];
+      for (const opcao of interessesSelecionados) {
+        interesses.push(opcao.value);
+      }
+      const dados = {
+        username: elForm.username.value,
+        nome: elForm.nome.value,
+        email: elForm.email.value,
+        dataNascimento: elForm.dataNascimento.value,
+        telefone: elForm.telefone.value,
+        senha: elForm.senha.value,
+        repeticaoSenha: elForm.repeticaoSenha.value,
+        interesses: interesses
+      };
+      console.log(JSON.stringify(dados));
+      try {
+        const httpResp = await fetch('http://localhost:8080/pessoas', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(dados)
+        });
+        if (!httpResp.ok) {
+          alert('ERRO no envio')
+          return;
+        }
+        alert('Dados incluidos com sucesso');
+      } catch (err) {
+        alert('ERRO no envio')
+      }
+    }
+    document.getElementById('formDados').onsubmit = salvarDados;
+
+  </script>
+</body>
+</html>

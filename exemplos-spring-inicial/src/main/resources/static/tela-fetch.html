@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplo Acesso com Fetch API</h1>
+    <p>Nome: <span id="nome"></span></p>
+    <p>E-mail: <span id="email"></span></p>
+    <p>Time: <span  id="time"></span></p>
+    <p>Cidade: <span id="cidade"></span></p>
+    <script>
+        async function obterDados() {
+            const nome = 'Fulano';
+            const email = 'fulano@email.com';
+            const time = 'Juventus';
+            const httpResp = await fetch(`/?nome=${nome}&email=${email}&time=${time}`);
+            if (!httpResp.ok)  {
+                alert('Erro');
+                return;
+            }
+            const dados = await httpResp.json();
+            document.querySelector('#nome').textContent = dados.nome;
+            document.querySelector('#email').textContent = dados.email;
+            document.querySelector('#time').textContent = dados.time;
+            document.querySelector('#cidade').textContent = dados.cidade;
+        }
+        obterDados();
+    </script>
+</body>
+</html>
